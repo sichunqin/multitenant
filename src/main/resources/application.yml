@@ -29,6 +29,8 @@ spring:
           auto: update
         default_schema: dbo
         dialect: org.hibernate.dialect.SQLServer2012Dialect
+debug: true
+
     #   multiTenancy: DATABASE
     #   tenant_identifier_resolver: com.example.config.multitenant.TenantSchemaResolver
     #   multi_tenant_connection_provider: com.example.config.multitenant.database.DataSourceBasedMultiTenantConnectionProviderImpl

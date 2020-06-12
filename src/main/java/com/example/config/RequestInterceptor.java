@@ -1,5 +1,9 @@
 package com.example.config;
 
+import com.example.config.multitenant.MultiTenancyFilter;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.context.annotation.Conditional;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -7,6 +11,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@ConditionalOnMissingBean(MultiTenancyFilter.class)
 
 @Component
 public class RequestInterceptor extends HandlerInterceptorAdapter {

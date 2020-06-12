@@ -1,6 +1,8 @@
 package com.example.config;
 
+import com.example.config.multitenant.MultiTenancyFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -13,10 +15,7 @@ import org.springframework.web.servlet.config.annotation.*;
 
 import java.util.List;
 
-/**
- * Created by suman.das on 7/23/19.
- */
-@Configuration
+
 public class PathMatchingConfigurationAdapter implements WebMvcConfigurer {
 
     @Autowired
