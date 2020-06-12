@@ -1,4 +1,4 @@
-# spring-boot-multitenant
+# spring-boot-multitenant for sqlserver (database schema)
 This is a Spring Boot multi-tenant sample application which supports all multiple-tenancy models. By default multi schema model is enabled.</br>
 Multi-Tenancy model is enabled using  [Hibernate multi-tenancy support](https://docs.jboss.org/hibernate/orm/4.2/devguide/en-US/html/ch16.html).</br>
 
