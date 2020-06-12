@@ -1,4 +1,4 @@
-CREATE TABLE if not exists public.DATASOURCECONFIG (
+CREATE TABLE (
 	id bigint PRIMARY KEY,
 	driverclassname VARCHAR(255),
 	url VARCHAR(255),
@@ -7,23 +7,16 @@ CREATE TABLE if not exists public.DATASOURCECONFIG (
 	password VARCHAR(255),
 	initialize BOOLEAN
 );
-##### Schema Creation ############
-create schema if not exists test1;
-create schema if not exists test2;
-create table test1.city(id bigint, name varchar(200));
-create table test2.city(id bigint, name varchar(200));
 
-CREATE SEQUENCE "test1".hibernate_sequence
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-CREATE SEQUENCE "test2".hibernate_sequence
-    START WITH 1
-    INCREMENT BY 1
-    NO MINVALUE
-    NO MAXVALUE
-    CACHE 1;
-INSERT INTO DATASOURCECONFIG VALUES (1, 'com.microsoft.sqlserver.jdbc.SQLServerDriver', 'jdbc:postgresql://localhost:5432/test?currentSchema=test1&ApplicationName=MultiTenant', 'test1', 'postgres', 'postgres', true);
-INSERT INTO DATASOURCECONFIG VALUES (2, 'org.postgresql.Drive', 'jdbc:postgresql://localhost:5432/test?currentSchema=test2&ApplicationName=MultiTenant', 'test2', 'postgres', 'postgres', true);
+
+INSERT INTO DATASOURCECONFIG VALUES (1, 'com.microsoft.sqlserver.jdbc.SQLServerDriver', 'jdbc:sqlserver://192.168.70.40:1433;Databasename=test1', 'test1', 'sa', 'sa123!',0);
+INSERT INTO DATASOURCECONFIG VALUES (2, 'com.microsoft.sqlserver.jdbc.SQLServerDriver', 'jdbc:sqlserver://192.168.70.40:1433;Databasename=test2', 'test2', 'sa', 'sa123!',0);
+
+create database test1;
+create database test2;
+use test1;
+create table city(id bigint, name varchar(200));
+use test2;
+create table city(id bigint, name varchar(200));
+
+
