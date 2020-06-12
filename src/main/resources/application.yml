@@ -1,0 +1,36 @@
+server:
+  port: 8080
+  profiles:
+    active: db
+spring:
+  application:
+    name: MultiTenant
+
+  #datasource:
+    #  url: 'jdbc:postgresql://localhost:5432/test?ApplicationName=MultiTenant'
+    #username: 'postgres'
+    #password: 'postgres'
+    #driver-class-name: org.postgresql.Driver
+
+  datasource:
+      url: 'jdbc:sqlserver://192.168.70.40:1433;Databasename=DaXinJavaBS'
+      username: 'sa'
+      password: 'sa123!'
+      #driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+      #hikari:
+        #  connection-timeout: 20000 #maximum number of milliseconds that a client will wait for a connection
+    #maximum-pool-size: 1234 #maximum pool size
+
+  jpa:
+    database: sql_server
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        default_schema: dbo
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+    #   multiTenancy: DATABASE
+    #   tenant_identifier_resolver: com.example.config.multitenant.TenantSchemaResolver
+    #   multi_tenant_connection_provider: com.example.config.multitenant.database.DataSourceBasedMultiTenantConnectionProviderImpl
+
+
