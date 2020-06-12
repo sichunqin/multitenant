@@ -24,10 +24,17 @@ To run it you can go to the Maven target folder generated and execute the follow
 java -jar multitenant-XXX.jar
 ```
 
-## Testing
+## Testing -- using query parameter to indicate tenant id. 
 
 Once started you can go and request the data using different tenants :
+*  curl -X POST  -H "Content-Type: application/json"  -d "{\"name\":\"MumbaiOntest1\"}" 
+*  http://localhost:8080?TenantId=test1
+*  curl -X GET   http://localhost:8080/ -H 'Content-Type: application/json' 
+*  curl -X POST  -H "Content-Type: application/json"  -d "{\"name\":\"MumbaiOntest2\"}" 
+http://localhost:8080?TenantId=test2
+*  curl -X GET   http://localhost:8080/ -H 'Content-Type: application/json' 
 
+## Testing -- using http header to indicate tenant id. 
 * `curl -X POST   http://localhost:8080/ -H 'Content-Type: application/json' -H 'X-TenantID: test1' -d '{"name":"Mumbai"}'`
 
 * `curl -X POST   http://localhost:8080/ -H 'Content-Type: application/json' -H 'X-TenantID: test2' -d '{"name":"Kolkata"}'`
