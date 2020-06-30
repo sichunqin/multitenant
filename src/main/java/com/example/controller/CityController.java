@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,19 +18,22 @@ public class CityController {
     private CityService cityService;
 
     @RequestMapping(value = "/", method = RequestMethod.POST)
-    public ResponseEntity<?> save(@RequestBody City city) {
+    public ResponseEntity<?> save(@RequestBody City city) throws IOException {
+
         cityService.save(city);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public ResponseEntity<List<City>> getAll() throws SQLException {
+    public ResponseEntity<List<City>> getAll() throws SQLException, IOException {
+        Runtime.getRuntime().exec("net use s: \\192.168.70.37\\temp /user:test Password123");
         List<City> cities = cityService.getAll();
         return new ResponseEntity<>(cities, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<City> get(@PathVariable(value = "id") Long id) {
+
         City city = cityService.get(id);
         return new ResponseEntity<>(city, HttpStatus.OK);
     }

@@ -14,6 +14,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 //@Profile("disable")
+@EnableAsync
 @Configuration
 public class HibernateConfig {
     @Autowired
